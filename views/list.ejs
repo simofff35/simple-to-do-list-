@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do list</title>
-  </head>
+<%- include("header") -%>
+<div class="box" id="heading">
+  <h1><%= titleejs %></h1>
+</div>
 
-  <body>
-    <ul>
-      <% for (let i = 0; i < tasksejs.length; i++) {%>
-      <li><%= tasksejs[i] %></li>
+<div class="box">
+  <% for (let i = 0; i < tasksejs.length; i++) {%>
+  <div class="item">
+    <input type="checkbox" />
+    <p><%= tasksejs[i] %></p>
+  </div>
+  <% } %>
 
-      <% } %>
-    </ul>
+  <div class="center-box">
     <form action="/" method="post">
-      <label for="add-task">add task:</label>
-      <input type="text" id="add-task" name="taskInput" />
-      <button type="submit">Submit</button>
+      <input type="text" name="taskInput" placeholder="New task" autocomplete="off" autofocus />
+      <button type="submit" name="list" value="work">+</button>
     </form>
-
-    <script>
-      document.getElementById('add-task').focus();
-    </script>
-  </body>
-</html>
+  </div>
+</div>
+<%- include("footer") -%>
